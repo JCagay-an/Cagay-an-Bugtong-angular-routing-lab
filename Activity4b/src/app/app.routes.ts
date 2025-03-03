@@ -16,5 +16,10 @@ export const routes: Routes = [
         ]
     },
 
-    { path: 'contact', component: ContactComponent }
+    { path: 'contact', component: ContactComponent },
+    {
+        path: 'admin',
+        loadComponent: () => import('./admin/admin/admin.component').then(m => m.AdminComponent)
+    }
+
 ];
