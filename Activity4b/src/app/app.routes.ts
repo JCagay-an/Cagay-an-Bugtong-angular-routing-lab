@@ -13,13 +13,13 @@ export const routes: Routes = [
     path: 'about',
     component: AboutComponent,
     children: [
-      { path: 'profile', component: ProfileComponent } // Child route
+      { path: 'profile', component: ProfileComponent }
     ]
   },
   { path: 'contact', component: ContactComponent },
   {
     path: 'admin',
     loadComponent: () => import('./admin/admin/admin.component').then(m => m.AdminComponent),
-    canActivate: [AdminGuard] // Protect with AdminGuard
+    canActivate: [AdminGuard]
   }
 ];
