@@ -3,7 +3,6 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './about/profile/profile.component';
-import { AdminComponent } from './admin/admin/admin.component';
 import { AdminGuard } from './admin/admin.guard';
 
 export const routes: Routes = [
