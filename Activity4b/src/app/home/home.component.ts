@@ -7,9 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  messageVisible = false;
 
-  showMessage() {
-    this.messageVisible = !this.messageVisible;
-  }
 }
