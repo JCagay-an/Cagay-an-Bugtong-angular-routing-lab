@@ -1,0 +1,11 @@
+<div class="home-container">
+    <h1>Welcome to Our Home Page!</h1>
+    <p>This is the heart of our website. Feel free to explore.</p>
+  
+    <button (click)="showMessage()">Click me for a surprise</button>
+  
+    <div *ngIf="messageVisible">
+      <p>Here's your surprise message! Have a great day!</p>
+    </div>
+  </div>
+  
