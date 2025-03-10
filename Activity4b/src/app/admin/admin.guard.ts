@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivate, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,17 +7,13 @@ import { Observable } from 'rxjs';
 export class AdminGuard implements CanActivate {
   constructor(private router: Router) {}
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> | Promise<boolean> | boolean {
-    const isAdmin = false; 
+  canActivate(): boolean {
+    const isAdmin = localStorage.getItem('isAdmin') === 'true'; 
     if (!isAdmin) {
-      alert('Access Denied!'); 
+      alert('Access Denied! You need admin privileges.');
       this.router.navigate(['/home']);
       return false;
     }
-    return true;
+    return true; 
   }
 }
-
