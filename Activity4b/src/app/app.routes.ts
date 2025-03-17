@@ -21,8 +21,18 @@ export const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   {
     path: 'admin',
-    loadComponent: () => import('./admin/admin/admin.component').then(m => m.AdminComponent),
-    canActivate: [AdminGuard]
+    component: ParentComponent, 
+    canActivate: [AdminGuard], 
+    children: [
+    {
+    path: 'dashboard',
+    component: ChildOneComponent
+    },
+    {
+    path: 'users',
+    component: ChildTwoComponent 
+    }
+    ]
   },
   {
     path: 'parent',

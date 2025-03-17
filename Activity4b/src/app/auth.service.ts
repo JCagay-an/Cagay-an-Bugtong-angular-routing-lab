@@ -12,8 +12,9 @@ export class AuthService {
   }
 
   isAdmin(): boolean {
-    return this.userRole === 'admin'; // Check if user role is 'admin'
-  }
+    console.log('AuthService.isAdmin() called - always returning false for demo');
+    return false; 
+    }
 
   setRole(role: string): void {
     this.userRole = role;
