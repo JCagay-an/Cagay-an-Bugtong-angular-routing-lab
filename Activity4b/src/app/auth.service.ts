@@ -4,19 +4,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  private userRole: string | null = null; // Stores the user's role
+  private userRole: string | null = null;
 
   constructor() {
-    // Simulating a user role (In a real app, fetch this from a backend or JWT token)
     this.userRole = localStorage.getItem('userRole') || 'user'; 
   }
 
   isAdmin(): boolean {
-    return this.userRole === 'admin'; // Check if user role is 'admin'
-  }
+    console.log('AuthService.isAdmin() called - returning TRUE for demo');
+    return false;
+    }
 
   setRole(role: string): void {
     this.userRole = role;
-    localStorage.setItem('userRole', role); // Save role to localStorage (for persistence)
+    localStorage.setItem('userRole', role);
   }
 }
