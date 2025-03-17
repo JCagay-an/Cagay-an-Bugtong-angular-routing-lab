@@ -4,6 +4,9 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './about/profile/profile.component';
 import { AdminGuard } from './admin/admin.guard';
+import { ParentComponent } from './parent/parent.component';
+import { ChildOneComponent } from './child-one/child-one.component';
+import { ChildTwoComponent } from './child-two/child-two.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,4 +24,29 @@ export const routes: Routes = [
     loadComponent: () => import('./admin/admin/admin.component').then(m => m.AdminComponent),
     canActivate: [AdminGuard]
   }
+  {
+    path: 'parent',
+    component: ParentComponent,
+    children: [ 
+      {
+        path: 'child-one',
+        component: ChildOneComponent
+      },
+      {
+        path: 'child-two',
+        component: ChildTwoComponent
+      },
+      {
+        path: '',
+        redirectTo: 'child-one',
+        pathMatch: 'full'
+      }
+    ]
+  },
+  {
+    path: '',
+    redirectTo: '/parent',
+    pathMatch: 'full'
+  }
+
 ];
