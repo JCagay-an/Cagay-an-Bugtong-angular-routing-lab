@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -6,17 +7,23 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   private userRole: string | null = null;
 
-  constructor() {
-    this.userRole = localStorage.getItem('userRole') || 'user'; 
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.userRole = localStorage.getItem('userRole') || 'user';
+    } else {
+      this.userRole = 'user';
+    }
   }
 
   isAdmin(): boolean {
     console.log('AuthService.isAdmin() called - returning TRUE for demo');
-    return false;
-    }
+    return true;
+  }
 
   setRole(role: string): void {
     this.userRole = role;
-    localStorage.setItem('userRole', role);
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('userRole', role);
+    }
   }
 }
