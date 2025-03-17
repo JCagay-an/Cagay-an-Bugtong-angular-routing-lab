@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router'; 
+import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
@@ -15,14 +15,19 @@ export const routes: Routes = [
   { path: 'about', component: AboutComponent, children: [{ path: 'profile', component: ProfileComponent }] },
   { path: 'contact', component: ContactComponent },
 
-  { 
-    path: 'admin', 
-    canActivate: [AdminGuard], 
-    component: AdminComponent,
+  {
+    path: 'admin',
+    component: ParentComponent,
+    canActivate: [AdminGuard],
     children: [
-      { path: 'dashboard', component: AdminComponent },
-      { path: 'users', component: AdminComponent },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+      {
+        path: 'dashboard',
+        component: ChildOneComponent
+      },
+      {
+        path: 'users',
+        component: ChildTwoComponent
+      }
     ]
   },
 
