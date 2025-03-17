@@ -1,5 +1,13 @@
 <h3>Parent Component</h3>
 <p>This is the parent component. Child components will be displayed below:</p>
+
+<nav>
+  <a routerLink="/parent" routerLinkActive="active">Parent</a> |
+  <a routerLink="child-one" routerLinkActive="active">Child One</a> |
+  <a routerLink="child-two" routerLinkActive="active">Child Two</a>
+</nav>
+
 <div style="border: 1px solid gray; padding: 20px; margin-top: 20px;">
-<h4>Child Components Container</h4>
-<router-outlet></router-outlet>
+  <h4>Child Components Container</h4>
+  <router-outlet></router-outlet>
+</div>

@@ -12,51 +12,25 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   {
-    path: 'about',
-    component: AboutComponent,
-    children: [
+    path: 'about', component: AboutComponent, children: [
       { path: 'profile', component: ProfileComponent }
     ]
   },
   { path: 'contact', component: ContactComponent },
   {
-    path: 'admin',
-    component: ParentComponent, 
-    canActivate: [AdminGuard], 
-    children: [
-    {
-    path: 'dashboard',
-    component: ChildOneComponent
-    },
-    {
-    path: 'users',
-    component: ChildTwoComponent 
-    }
+    path: 'admin', component: ParentComponent, canActivate: [AdminGuard], children: [
+      { path: 'dashboard', component: ChildOneComponent },
+      { path: 'users', component: ChildTwoComponent }
     ]
   },
   {
     path: 'parent',
     component: ParentComponent,
-    children: [ 
-      {
-        path: 'child-one',
-        component: ChildOneComponent
-      },
-      {
-        path: 'child-two',
-        component: ChildTwoComponent
-      },
-      {
-        path: '',
-        redirectTo: 'child-one',
-        pathMatch: 'full'
-      }
+    children: [
+      { path: 'child-one', component: ChildOneComponent },
+      { path: 'child-two', component: ChildTwoComponent },
+      { path: '', redirectTo: 'child-one', pathMatch: 'full' }
     ]
   },
-  {
-    path: '',
-    redirectTo: '/parent',
-    pathMatch: 'full'
-  }
-
+  { path: '**', redirectTo: 'home' }
 ];
