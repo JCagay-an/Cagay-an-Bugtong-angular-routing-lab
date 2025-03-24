@@ -17,7 +17,7 @@ export class AuthService {
 
   isAdmin(): boolean {
     console.log('AuthService.isAdmin() called - returning TRUE for demo');
-    return true;
+    return false;
   }
 
   setRole(role: string): void {
