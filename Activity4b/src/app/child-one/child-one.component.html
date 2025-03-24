@@ -1,1 +1,41 @@
-<p>child-one works!</p>
+<h1>{{ pageTitle }}</h1>
+<p>Current time: {{ currentTime | date:'medium' }}</p>
+
+<img [src]="imageUrl" [alt]="'Hot Dog Image'">
+<button [disabled]="isDisabled">Click Me</button>
+<input type="text" [disabled]="isDisabled">
+
+<br><br>
+
+<button (click)="incrementCount()">Clicks: {{ clickCount }}</button>
+<input (input)="onInput($event)" placeholder="Type something...">
+
+<br><br>
+
+<input [(ngModel)]="name" placeholder="Enter your name">
+<p>Hello, {{ name }}!</p>
+
+<input [(ngModel)]="email" placeholder="Enter your email">
+<p>Your email is: {{ email }}</p>
+
+<button (click)="submitForm()">Submit</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Submitted Information</h5>
+                <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Name:</strong> {{ name }}</p>
+                <p><strong>Email:</strong> {{ email }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
