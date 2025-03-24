@@ -13,7 +13,7 @@ export class ChildTwoComponent {
   pageTitle = 'Angular 19 Data Binding Examples';
   currentTime = new Date();
   // Properties for property binding
-  imageUrl = 'assets/angular-logo.png';
+  imageUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3qAb3e9auwnxJ1RmaypTdsieWkl2wb4u3cg&s';
   isDisabled = true;
   buttonColor = 'primary';
   progressValue = 75;
